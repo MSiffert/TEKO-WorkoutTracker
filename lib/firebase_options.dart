@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAqZhz_oTdpu0i8nTFbtOTRFmPVRfiFywM',
-    appId: '1:982102404489:web:54809a7d44d6b65c2e4558',
-    messagingSenderId: '982102404489',
-    projectId: 'workouttracker-387f6',
-    authDomain: 'workouttracker-387f6.firebaseapp.com',
-    storageBucket: 'workouttracker-387f6.firebasestorage.app',
-    measurementId: 'G-ET8RVJMMEV',
+    apiKey: 'AIzaSyAFqaLTYkJ6zq8oKnzoHo1hr3GFz3x7b3s',
+    appId: '1:66711139753:web:2ba02bf36744f1b24f40b8',
+    messagingSenderId: '66711139753',
+    projectId: 'workout-tracking-app-cf280',
+    authDomain: 'workout-tracking-app-cf280.firebaseapp.com',
+    storageBucket: 'workout-tracking-app-cf280.firebasestorage.app',
+    measurementId: 'G-0PG34CT77D',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA865Ca2e4i3dCJLBHkZOLqb4IyUA9Pe6A',
-    appId: '1:982102404489:android:460d905feeee06f02e4558',
-    messagingSenderId: '982102404489',
-    projectId: 'workouttracker-387f6',
-    storageBucket: 'workouttracker-387f6.firebasestorage.app',
+    apiKey: 'AIzaSyB98UFQNDeUaY_ZVj95pCDwTyb-KbF76Ig',
+    appId: '1:66711139753:android:b3c3c5df7cc0d4384f40b8',
+    messagingSenderId: '66711139753',
+    projectId: 'workout-tracking-app-cf280',
+    storageBucket: 'workout-tracking-app-cf280.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBqyo0uxgCeH_fMvHThzQLWn0PWunVPBH4',
-    appId: '1:982102404489:ios:a096d0bce4b711be2e4558',
-    messagingSenderId: '982102404489',
-    projectId: 'workouttracker-387f6',
-    storageBucket: 'workouttracker-387f6.firebasestorage.app',
+    apiKey: 'AIzaSyCIJGIwf0gYIENs-MZHl1wRVGZaYcVvU7U',
+    appId: '1:66711139753:ios:2cc39580ff01428d4f40b8',
+    messagingSenderId: '66711139753',
+    projectId: 'workout-tracking-app-cf280',
+    storageBucket: 'workout-tracking-app-cf280.firebasestorage.app',
     iosBundleId: 'com.example.workoutTracker',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBqyo0uxgCeH_fMvHThzQLWn0PWunVPBH4',
-    appId: '1:982102404489:ios:a096d0bce4b711be2e4558',
-    messagingSenderId: '982102404489',
-    projectId: 'workouttracker-387f6',
-    storageBucket: 'workouttracker-387f6.firebasestorage.app',
+    apiKey: 'AIzaSyCIJGIwf0gYIENs-MZHl1wRVGZaYcVvU7U',
+    appId: '1:66711139753:ios:2cc39580ff01428d4f40b8',
+    messagingSenderId: '66711139753',
+    projectId: 'workout-tracking-app-cf280',
+    storageBucket: 'workout-tracking-app-cf280.firebasestorage.app',
     iosBundleId: 'com.example.workoutTracker',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAqZhz_oTdpu0i8nTFbtOTRFmPVRfiFywM',
-    appId: '1:982102404489:web:b4acebcc472197522e4558',
-    messagingSenderId: '982102404489',
-    projectId: 'workouttracker-387f6',
-    authDomain: 'workouttracker-387f6.firebaseapp.com',
-    storageBucket: 'workouttracker-387f6.firebasestorage.app',
-    measurementId: 'G-QSKHTWFD98',
+    apiKey: 'AIzaSyAFqaLTYkJ6zq8oKnzoHo1hr3GFz3x7b3s',
+    appId: '1:66711139753:web:874f094aea76420f4f40b8',
+    messagingSenderId: '66711139753',
+    projectId: 'workout-tracking-app-cf280',
+    authDomain: 'workout-tracking-app-cf280.firebaseapp.com',
+    storageBucket: 'workout-tracking-app-cf280.firebasestorage.app',
+    measurementId: 'G-2MM1C1MQKK',
   );
 }
