@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'workouttracker-387f6.firebasestorage.app',
     measurementId: 'G-QSKHTWFD98',
   );
-
 }

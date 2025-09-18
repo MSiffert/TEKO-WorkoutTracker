@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'utils/helpers.dart';
 
 class AddEntryScreen extends StatefulWidget {
   const AddEntryScreen({super.key});
@@ -10,55 +12,51 @@ class AddEntryScreen extends StatefulWidget {
 }
 
 class _AddEntryScreenState extends State<AddEntryScreen> {
-  final _formKey = GlobalKey<FormState>();
   final _titleCtrl = TextEditingController();
   final _descCtrl = TextEditingController();
   bool _saving = false;
 
   Future<void> _save() async {
-    if (!_formKey.currentState!.validate()) return;
     setState(() => _saving = true);
-
-    final uid = FirebaseAuth.instance.currentUser!.uid;
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(uid)
-        .collection('entries')
-        .add({
-      'title': _titleCtrl.text.trim(),
-      'description': _descCtrl.text.trim(),
-      'createdAt': FieldValue.serverTimestamp(),
-    });
-
-    if (mounted) Navigator.of(context).pop();
+    try {
+      final uid = FirebaseAuth.instance.currentUser!.uid;
+      final now = DateTime.now();
+      await FirebaseFirestore.instance.collection('users').doc(uid).collection('entries').add({
+        'type': 'note',
+        'title': _titleCtrl.text.trim(),
+        'desc': _descCtrl.text.trim(),
+        'sessionId': yyyymmdd(now),
+        'createdAt': FieldValue.serverTimestamp(),
+        'createdAtStr': now.toIso8601String(),
+      });
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Gespeichert')));
+        Navigator.pop(context, true);
+      }
+    } catch (e) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fehler: $e')));
+    } finally {
+      if (mounted) setState(() => _saving = false);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Workout hinzufügen')),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          padding: const EdgeInsets.all(16),
+      appBar: AppBar(title: const Text('Notiz hinzufügen')),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
           children: [
-            TextFormField(
-              controller: _titleCtrl,
-              decoration: const InputDecoration(labelText: 'Titel'),
-              validator: (v) => (v == null || v.trim().isEmpty) ? 'Bitte Titel angeben' : null,
-            ),
+            TextField(controller: _titleCtrl, decoration: const InputDecoration(labelText: 'Titel')),
             const SizedBox(height: 12),
-            TextFormField(
-              controller: _descCtrl,
-              decoration: const InputDecoration(labelText: 'Ergebnis'),
-              maxLines: 4,
-            ),
+            TextField(controller: _descCtrl, decoration: const InputDecoration(labelText: 'Beschreibung')),
             const SizedBox(height: 24),
             FilledButton.icon(
               onPressed: _saving ? null : _save,
               icon: const Icon(Icons.save),
               label: Text(_saving ? 'Speichere...' : 'Speichern'),
-            ),
+            )
           ],
         ),
       ),
